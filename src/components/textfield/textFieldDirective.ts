@@ -23,6 +23,7 @@ import { InputTypeEnum } from './uifTypeEnum';
  */
 export interface ITextFieldScope extends angular.IScope {
   uifLabel: string;
+  uifIconLabel: string;
   placeholder: string;
   uifDescription: string;
   ngModel: string;
@@ -100,7 +101,7 @@ export class TextFieldDirective implements angular.IDirective {
   '<div ng-class="{\'is-active\': isActive, \'ms-TextField\': true, ' +
   '\'ms-TextField--underlined\': uifUnderlined, \'ms-TextField--placeholder\': placeholder, ' +
   '\'is-required\': required, \'is-disabled\': disabled, \'ms-TextField--multiline\' : uifMultiline }">' +
-  '<label ng-show="labelShown" class="ms-Label" ng-click="labelClick()">{{uifLabel || placeholder}}</label>' +
+  '<label ng-show="labelShown" class="ms-Label" ng-click="labelClick()"><i class="ms-Icon ms-Icon--{{uifIconLabel}}" ng-if="uifIconLabel" aria-hidden="true"></i>{{uifLabel || placeholder}}</label>' +
   '<input ng-model="ngModel" ng-change="inputChange()" ng-blur="inputBlur()" ng-focus="inputFocus()" ng-click="inputClick()" ' +
   'class="ms-TextField-field" ng-show="!uifMultiline" ng-disabled="disabled" type="{{uifType}}"' +
   'min="{{min}}" max="{{max}}" step="{{step}}" />' +
